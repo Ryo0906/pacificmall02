@@ -5,12 +5,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<meta name="description" content="<?php bloginfo( 'discription' ); ?>" />
 	<title><?php bloginfo(); ?></title>
-	<link rel="shortcut icon" href="<?php echo esc_attr( esc_attr( get_template_directory_uri() ) ); ?>/assets/images/common/favicon.ico" />
-	<link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Vollkorn:400i" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="<?php echo esc_attr( esc_attr( get_template_directory_uri() ) ); ?>/assets/css/styles.css" />
-	<script type="text/javascript" src="<?php echo esc_attr( esc_attr( get_template_directory_uri() ) ); ?>/assets/js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="<?php echo esc_attr( get_template_directory_uri() ); ?>/assets/js/bundle.js"></script>
+	<link rel="shortcut icon" href="<?php echo esc_attr( get_template_directory_uri() ); ?>/assets/images/common/favicon.ico" />
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -28,26 +23,14 @@
       </button>
       <div class="header-nav">
         <nav class="global-nav">
-          <ul class="menu">
-            <li class="menu-item">
-              <a class="nav-link active" href="#">ホーム</a>
-            </li>
-            <li class="menu-item">
-              <a class="nav-link" href="#">企業情報</a>
-            </li>
-            <li class="menu-item">
-              <a class="nav-link" href="#">店舗情報</a>
-            </li>
-            <li class="menu-item">
-              <a class="nav-link" href="#">地域貢献活動</a>
-            </li>
-            <li class="menu-item">
-              <a class="nav-link" href="#">ニュースリリース</a>
-            </li>
-            <li class="menu-item">
-              <a class="nav-link" href="#">お問い合わせ</a>
-            </li>
-          </ul>
+          <?php
+          wp_nav_menu(
+            array(
+              'theme_location' => 'global_nav',
+              'container' => folse,
+            )
+          );
+          ?>
         </nav>
         <form class="search-form" role="search" method="get" action="">
           <div class="search-box">
